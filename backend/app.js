@@ -1,13 +1,12 @@
 require("dotenv").config();
 require("express-async-errors");
+
 const express = require("express");
 const app = express();
 
 // connectDB
 const connectDB = require("./db/connect");
 const mongoose = require("mongoose");
-
-mongoose.set("strictQuery", false);
 
 // routers
 const authRouter = require("./routes/auth");
@@ -18,16 +17,17 @@ const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
 app.use(express.json());
-// extra packages
 
 // routes
-app.use("api/v1/auth", authRouter);
-app.use("api/v1/jobs", jobsRouter);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/jobs", jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3000;
+
+mongoose.set("strictQuery", false);
 
 const start = async () => {
   try {
