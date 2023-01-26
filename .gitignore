@@ -1,0 +1,6 @@
+/backend/node_modules
+/backend/package_lock.json
+/backend/yarn.lock
+/fontend/node_modules
+/fontend/package_lock.json
+/fontend/yarn.lock
