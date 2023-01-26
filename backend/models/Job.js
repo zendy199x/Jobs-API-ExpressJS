@@ -12,6 +12,14 @@ const JobSchema = new mongoose.Schema(
       required: [true, "Please provide position"],
       maxLength: 100,
     },
+    wage: {
+      type: Number,
+      required: [true, "Job wage must be provided"],
+    },
+    rating: {
+      type: Number,
+      default: 5,
+    },
     status: {
       type: String,
       enum: ["interview", "declined", "pending"],
