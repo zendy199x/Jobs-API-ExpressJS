@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { useGlobalContext } from '../context/appContext';
-import { Redirect } from 'react-router-dom';
-import FormRow from '../components/FormRow';
-import logo from '../assets/logo.svg';
+import { useState } from "react";
+import styled from "styled-components";
+import { useGlobalContext } from "../context/appContext";
+import { Redirect } from "react-router-dom";
+import FormRow from "../components/FormRow";
+import logo from "../assets/logo.png";
 
 function Register() {
   const [values, setValues] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
     isMember: true,
   });
 
@@ -33,22 +33,22 @@ function Register() {
 
   return (
     <>
-      {user && <Redirect to='/dashboard' />}
-      <Wrapper className='page full-page'>
-        <div className='container'>
+      {user && <Redirect to="/dashboard" />}
+      <Wrapper className="page full-page">
+        <div className="container">
           {showAlert && (
-            <div className='alert alert-danger'>
+            <div className="alert alert-danger">
               there was an error, please try again
             </div>
           )}
-          <form className='form' onSubmit={onSubmit}>
-            <img src={logo} alt='jobio' className='logo' />
-            <h4>{values.isMember ? 'Login' : 'Register'}</h4>
+          <form className="form" onSubmit={onSubmit}>
+            <img src={logo} alt="golden-owl" className="logo" />
+            <h4>{values.isMember ? "Login" : "Register"}</h4>
             {/* name field */}
             {!values.isMember && (
               <FormRow
-                type='name'
-                name='name'
+                type="name"
+                name="name"
                 value={values.name}
                 handleChange={handleChange}
               />
@@ -56,36 +56,38 @@ function Register() {
 
             {/* single form row */}
             <FormRow
-              type='email'
-              name='email'
+              type="email"
+              name="email"
               value={values.email}
               handleChange={handleChange}
             />
             {/* end of single form row */}
             {/* single form row */}
             <FormRow
-              type='password'
-              name='password'
+              type="password"
+              name="password"
               value={values.password}
               handleChange={handleChange}
             />
             {/* end of single form row */}
             <button
-              type='submit'
-              className='btn btn-block'
+              type="submit"
+              className="btn btn-block"
               disabled={isLoading}
             >
-              {isLoading ? 'Fetching User...' : 'Submit'}
+              {isLoading ? "Fetching User..." : "Submit"}
             </button>
             <p>
-              {values.isMember ? 'Not a member yet?' : 'Already a member?'}
+              {values.isMember
+                ? "Do not have an account?"
+                : "Do you already have an account?"}
 
               <button
-                type='button'
+                type="button"
                 onClick={toggleMember}
-                className='member-btn'
+                className="member-btn"
               >
-                {values.isMember ? 'Register' : 'Login'}
+                {values.isMember ? "Register" : "Login"}
               </button>
             </p>
           </form>
@@ -99,6 +101,7 @@ const Wrapper = styled.section`
   display: grid;
   align-items: center;
   .logo {
+    width: 200px;
     display: block;
     margin: 0 auto;
     margin-bottom: 1.38rem;

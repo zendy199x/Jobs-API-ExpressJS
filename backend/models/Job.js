@@ -14,7 +14,7 @@ const JobSchema = new mongoose.Schema(
     },
     wage: {
       type: Number,
-      required: [true, "Job wage must be provided"],
+      required: false,
     },
     rating: {
       type: Number,

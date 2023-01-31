@@ -11,7 +11,7 @@ function App() {
         <PrivateRoute path="/dashboard" exact>
           <Dashboard />
         </PrivateRoute>
-        <Route path="/register">
+        <Route path="/account">
           <Register />
         </Route>
         <Route path="/edit/:id">
